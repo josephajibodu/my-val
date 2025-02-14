@@ -12,6 +12,7 @@ import LoveFillerSlide from "./components/main/love-filler-slide";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { Typewriter } from "react-simple-typewriter";
+import BackgroundMusic from "./components/background-music";
 
 function App() {
   const messages = [
@@ -31,6 +32,7 @@ function App() {
   ] = useStep(7);
 
   const [currentStageComplete, setCurrentStageComplete] = useState(false);
+  const [canPlayMusic, setCanPlayMusic] = useState(false);
 
   useEffect(() => {
     // Reset completion state when changing steps
@@ -65,6 +67,8 @@ function App() {
     <div className="relative flex flex-col items-center justify-center min-h-screen text-2xl text-white bg-gradient-to-r from-pink-300 to-pink-200 px-8 h-[100vh] gap-2">
       <AnimatedBackground />
 
+      <BackgroundMusic canPlay={canPlayMusic} />
+
       {/* Content */}
       <motion.div
         className="relative z-10 h-[10vh] flex flex-col justify-end items-center w-full"
@@ -92,7 +96,12 @@ function App() {
 
       <div className="relative z-10 max-w-lg mx-auto flex-1 h-[80vh]">
         {currentStep === 1 && (
-          <LoveFillerSlide onChange={setCurrentStageComplete} />
+          <LoveFillerSlide
+            onChange={(completed) => {
+              setCanPlayMusic(true);
+              setCurrentStageComplete(completed);
+            }}
+          />
         )}
 
         {currentStep === 2 && (
