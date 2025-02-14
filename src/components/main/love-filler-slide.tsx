@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import type { SlideProps } from "@/types";
 import { Heart } from "lucide-react";
+import confetti from "canvas-confetti";
 
 export default function LoveFillerSlide({ onChange }: SlideProps) {
   const [fillPercentage, setFillPercentage] = useState(0);
@@ -26,6 +27,11 @@ export default function LoveFillerSlide({ onChange }: SlideProps) {
   useEffect(() => {
     if (fillPercentage === 100) {
       setMessage("Your heart is full of love! ❤️");
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.8 },
+      });
       onChange(true);
     } else if (!isHolding && fillPercentage > 0) {
       const timeout = setTimeout(() => {
@@ -48,11 +54,27 @@ export default function LoveFillerSlide({ onChange }: SlideProps) {
       transition: { duration: 0.5, repeat: Number.POSITIVE_INFINITY },
     });
   }, [pulseAnimation]);
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault(); // Prevent selection
+    e.stopPropagation(); // Stop event bubbling
+    setIsHolding(true);
+  };
 
-  const handleMouseDown = () => setIsHolding(true);
-  const handleMouseUp = () => setIsHolding(false);
-  const handleTouchStart = () => setIsHolding(true);
-  const handleTouchEnd = () => setIsHolding(false);
+  const handleMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsHolding(false);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsHolding(true);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsHolding(false);
+  };
 
   return (
     <div className="max-w-md mx-auto h-full p-8 rounded-3xl shadow-2xl text-center flex flex-col items-center justify-center">
