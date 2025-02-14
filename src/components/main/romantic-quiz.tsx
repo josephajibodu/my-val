@@ -23,7 +23,7 @@ const questions: Question[] = [
   {
     type: "short",
     question: "Do you remember the exact date we met and how it started?",
-    hint: "July 10, 2019 – A moment orchestrated by God",
+    hint: "A moment orchestrated by God",
   },
   {
     type: "multiple",
@@ -156,7 +156,7 @@ function RomanticQuiz({ onChange }: SlideProps) {
                 <motion.button
                   key={index}
                   onClick={() => handleAnswerChange(option)}
-                  className={`block w-full py-3 px-6 border-2 rounded-xl transition ${
+                  className={`block w-full py-3 px-6 border-2 rounded-xl transition text-sm ${
                     answers[step] === option
                       ? "bg-pink-500 text-white border-pink-600"
                       : "bg-white text-pink-600 border-pink-300 hover:bg-pink-100"

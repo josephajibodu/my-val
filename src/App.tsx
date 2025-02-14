@@ -9,10 +9,14 @@ import ShareMoments from "./components/main/share-moments";
 import WillYouBeMyVal from "./components/main/will-you-be-my-val";
 import GrandFinale from "./components/main/grand-finale";
 import LoveFillerSlide from "./components/main/love-filler-slide";
+import { motion } from "framer-motion";
+import confetti from "canvas-confetti";
 
 function App() {
-  const [currentStep, { goToNextStep, canGoToPrevStep, goToPrevStep }] =
-    useStep(10);
+  const [
+    currentStep,
+    { goToNextStep, canGoToPrevStep, goToPrevStep, canGoToNextStep },
+  ] = useStep(7);
 
   const [currentStageComplete, setCurrentStageComplete] = useState(false);
 
@@ -28,6 +32,14 @@ function App() {
     if (currentStageComplete) {
       goToNextStep();
     }
+
+    if (!canGoToNextStep) {
+      confetti({
+        particleCount: 1000,
+        spread: 150,
+        origin: { y: 0.6 },
+      });
+    }
   }
 
   function handlePrevStep(
@@ -42,22 +54,42 @@ function App() {
       <AnimatedBackground />
 
       {/* Content */}
-      <div className="relative z-10 h-[10vh] flex flex-col justify-end items-center w-full">
-        <h1 className="text-5xl font-bold">Hiiiiiii 🫶🏼</h1>
-      </div>
+      <motion.div
+        className="relative z-10 h-[10vh] flex flex-col justify-end items-center w-full"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1 className="text-5xl font-bold text-white drop-shadow-lg">
+          Hiiiiiii 🫶🏼
+        </h1>
+      </motion.div>
 
       <div className="relative z-10 max-w-lg mx-auto flex-1 h-[80vh]">
-        <LoveFillerSlide onChange={setCurrentStageComplete} />
-        {/* <GrandFinale onChange={setCurrentStageComplete} /> */}
-        {/* <WillYouBeMyVal onChange={setCurrentStageComplete} /> */}
-        {/* <ShareMoments onChange={setCurrentStageComplete} /> */}
-        {/* <MomentsThatTouch onChange={setCurrentStageComplete} /> */}
-        {/* {currentStep === 1 && (
+        {currentStep === 1 && (
+          <LoveFillerSlide onChange={setCurrentStageComplete} />
+        )}
+
+        {currentStep === 2 && (
           <Authentication onChange={setCurrentStageComplete} />
         )}
-        {currentStep === 2 && (
+
+        {currentStep === 3 && (
           <RomanticQuiz onChange={setCurrentStageComplete} />
-        )} */}
+        )}
+
+        {currentStep === 4 && (
+          <ShareMoments onChange={setCurrentStageComplete} />
+        )}
+        {currentStep === 5 && (
+          <MomentsThatTouch onChange={setCurrentStageComplete} />
+        )}
+        {currentStep === 6 && (
+          <WillYouBeMyVal onChange={setCurrentStageComplete} />
+        )}
+        {currentStep === 7 && (
+          <GrandFinale onChange={setCurrentStageComplete} />
+        )}
       </div>
 
       <div className="relative z-10 flex justify-between items-center gap-4 w-full max-w-lg mx-auto h-[10vh]">
