@@ -77,26 +77,3 @@ What’s a love story without a little show of romance? Here’s something speci
 
 Forever yours,\
 **Joseph Oluwayomi Ajibodu** 💕
-
-	1.	What’s one thing about me that always makes you smile?
-	2.	If we could relive one moment together, which one would it be?
-	3.	What’s your idea of the perfect date night?
-	4.	If we could travel anywhere right now, where would you want us to go?
-	5.	What’s one song that reminds you of us?
-	6.	If we had to describe our love story in three words, what would they be?
-	7.	What’s something small I do that makes you feel loved?
-	8.	What’s one dream or goal you’d love us to achieve together?
-	9.	If we were in a movie, what kind of love story would it be?
-	10.	What’s one thing you love about our relationship that makes it special?
-
-
-  1.	What’s the most memorable gift you’ve ever received?
-	2.	Do you prefer sentimental gifts or practical gifts you can use daily?
-	3.	If you could have a perfect “just because” surprise, what would it be?
-	4.	Do you enjoy handwritten letters, or do you prefer spoken words of affirmation?
-	5.	Would you rather have a fun experience together (like a trip or date night) or receive something meaningful?
-	6.	When someone gives you a gift, what makes it special to you—the thought behind it, its usefulness, or its uniqueness?
-	7.	Do you like surprises, or would you rather choose something you really want?
-	8.	If I were to plan a day just for you, what are three things you’d love to do?
-	9.	What’s one small thing someone has done for you that made you feel deeply loved?
-	10.	If you had to pick between a heartfelt letter, a surprise gift, or a full day together, which would mean the most to you?

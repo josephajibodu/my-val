@@ -4,6 +4,10 @@ import Authentication from "./components/main/authentication";
 import { Button } from "./components/ui/button";
 import AnimatedBackground from "./components/animated-background";
 import RomanticQuiz from "./components/main/romantic-quiz";
+import MomentsThatTouch from "./components/main/moments-that-touch";
+import ShareMoments from "./components/main/share-moments";
+import WillYouBeMyVal from "./components/main/will-you-be-my-val";
+import GrandFinale from "./components/main/grand-finale";
 
 function App() {
   const [currentStep, { goToNextStep, canGoToPrevStep, goToPrevStep }] =
@@ -33,24 +37,28 @@ function App() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen text-2xl text-white bg-gradient-to-r from-pink-300 to-pink-200 px-8 py-16 overflow-hidden h-[100vh]">
+    <div className="relative flex flex-col items-center justify-center min-h-screen text-2xl text-white bg-gradient-to-r from-pink-300 to-pink-200 px-8 h-[100vh] gap-2">
       <AnimatedBackground />
 
       {/* Content */}
-      <div className="relative z-10 mb-8 h-[5vh]">
+      <div className="relative z-10 h-[10vh] flex flex-col justify-end items-center w-full">
         <h1 className="text-5xl font-bold">Hiiiiiii 🫶🏼</h1>
       </div>
 
-      <div className="relative z-10 max-w-lg mx-auto flex-1 h-[90vh]">
-        {currentStep === 1 && (
+      <div className="relative z-10 max-w-lg mx-auto flex-1 h-[80vh]">
+        {/* <GrandFinale onChange={setCurrentStageComplete} /> */}
+        {/* <WillYouBeMyVal onChange={setCurrentStageComplete} /> */}
+        {/* <ShareMoments onChange={setCurrentStageComplete} /> */}
+        {/* <MomentsThatTouch onChange={setCurrentStageComplete} /> */}
+        {/* {currentStep === 1 && (
           <Authentication onChange={setCurrentStageComplete} />
         )}
         {currentStep === 2 && (
           <RomanticQuiz onChange={setCurrentStageComplete} />
-        )}
+        )} */}
       </div>
 
-      <div className="relative z-10 flex justify-between gap-4 w-full max-w-lg mx-auto mt-8 h-[5vh]">
+      <div className="relative z-10 flex justify-between items-center gap-4 w-full max-w-lg mx-auto h-[10vh]">
         {canGoToPrevStep && (
           <Button
             size="lg"
