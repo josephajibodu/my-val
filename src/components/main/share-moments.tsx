@@ -11,54 +11,86 @@ const memories = [
   {
     id: 1,
     type: "image",
-    src: "/placeholder.svg?height=300&width=300",
-    caption: "Our first date",
+    src: "/images/moments/first-vacation-i-think.JPG",
+    caption: "First vacation, I think",
   },
   {
     id: 2,
     type: "image",
-    src: "/placeholder.svg?height=300&width=300",
-    caption: "Celebrating your birthday",
+    src: "/images/moments/how-did-you-win-me.JPG",
+    caption: "How did you win me?",
   },
   {
     id: 3,
-    type: "video",
-    src: "/placeholder.mp4",
-    caption: "Our favorite song",
+    type: "image",
+    src: "/images/moments/my-hair.JPG",
+    caption: "My hair",
   },
   {
     id: 4,
     type: "image",
-    src: "/placeholder.svg?height=300&width=300",
-    caption: "Our trip to the beach",
+    src: "/images/moments/our-graduate.JPG",
+    caption: "Our graduate",
   },
   {
     id: 5,
+    type: "video",
+    src: "/images/moments/owambe-with-babe.mp4",
+    caption: "Owambe with babe",
+  },
+  {
+    id: 6,
     type: "image",
-    src: "/placeholder.svg?height=300&width=300",
-    caption: "Cooking together",
+    src: "/images/moments/random-broke-christmas.JPG",
+    caption: "Random broke Christmas",
+  },
+  {
+    id: 7,
+    type: "image",
+    src: "/images/moments/she-loves-food.JPG",
+    caption: "She loves food",
+  },
+  {
+    id: 8,
+    type: "image",
+    src: "/images/moments/very-deligent.JPG",
+    caption: "Very diligent",
+  },
+  {
+    id: 9,
+    type: "image",
+    src: "/images/moments/wearing-my-trouser.JPG",
+    caption: "Wearing my trouser",
+  },
+  {
+    id: 10,
+    type: "image",
+    src: "/images/moments/why-she-open-mouth.JPG",
+    caption: "Why she open mouth?",
   },
 ];
 
 const MemoryCard: React.FC<{ memory: (typeof memories)[0] }> = ({ memory }) => (
-  <motion.div
-    className="bg-white rounded-lg shadow-lg overflow-hidden"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    {memory.type === "image" ? (
-      <img
-        src={memory.src || "/placeholder.svg"}
-        alt={memory.caption}
-        className="w-full h-48 object-cover"
-      />
-    ) : (
-      <video src={memory.src} className="w-full h-48 object-cover" controls />
-    )}
+  <div className="overflow-hidden flex flex-col h-full">
+    <div className="flex-grow flex items-center justify-center p-4">
+      {memory.type === "image" ? (
+        <img
+          src={memory.src || "/placeholder.svg"}
+          alt={memory.caption}
+          className="max-h-[40vh] w-auto object-contain rounded-lg"
+        />
+      ) : (
+        <video
+          src={memory.src}
+          className="max-h-[40vh] w-auto object-contain rounded-lg"
+          controls
+        />
+      )}
+    </div>
     <p className="p-4 text-center text-pink-600 font-medium">
       {memory.caption}
     </p>
-  </motion.div>
+  </div>
 );
 
 export default function ShareMoments({ onChange }: SlideProps) {
@@ -75,13 +107,13 @@ export default function ShareMoments({ onChange }: SlideProps) {
   };
 
   return (
-    <div className="max-w-4xl h-full mx-auto p-8 bg-gradient-to-br from-pink-100 to-white rounded-3xl shadow-2xl text-center">
+    <div className="max-w-4xl h-full overflow-y-scroll mx-auto p-8 bg-gradient-to-br from-pink-100 to-white rounded-3xl shadow-2xl text-center">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Camera className="w-16 h-16 text-pink-500 mx-auto mb-4" />
+        <Camera className="w-12 h-12 text-pink-500 mx-auto mb-4" />
         <h2 className="text-xl font-bold text-pink-600 mb-6">
           Share Some Moments 📸
         </h2>

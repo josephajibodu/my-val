@@ -7,11 +7,9 @@ import { Button } from "../ui/button";
 import { Heart, Music, Video, Mail } from "lucide-react";
 
 const playlist = [
-  { title: "Perfect", artist: "Ed Sheeran" },
-  { title: "All of Me", artist: "John Legend" },
-  { title: "Can't Help Falling in Love", artist: "Elvis Presley" },
-  { title: "Thinking Out Loud", artist: "Ed Sheeran" },
-  { title: "At Last", artist: "Etta James" },
+  { title: "Running(To You)", artist: "Chike, Simi" },
+  { title: "Anyway", artist: "Johnny Drille, Don Jazzy" },
+  { title: "Dandelions", artist: "Ruth B." },
 ];
 
 export default function GrandFinale({ onChange }: SlideProps) {
@@ -34,9 +32,9 @@ export default function GrandFinale({ onChange }: SlideProps) {
           heartfelt message from me to you, sealed with love. 🎶💌
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 h-72">
           <motion.div
-            className="bg-white p-6 rounded-xl shadow-md h-fit"
+            className="bg-white p-6 rounded-xl shadow-md h-72 flex flex-col"
             whileHover={{ scale: 1.05 }}
           >
             <Video className="w-9 h-9 text-pink-500 mx-auto mb-2" />
@@ -46,29 +44,41 @@ export default function GrandFinale({ onChange }: SlideProps) {
             <p className="text-gray-600 mb-4 text-sm">
               A special video montage of our journey together.
             </p>
+            <div className="text-transparent flex-1">Space</div>
             <Button className="bg-pink-500 hover:bg-pink-600 text-white">
-              Watch Video
+              <a
+                href="https://youtube.com/shorts/9E043QwngiE?si=aalAjdtZkxrg3E5b"
+                target="_blank"
+              >
+                Watch Video
+              </a>
             </Button>
           </motion.div>
 
           <motion.div
-            className="bg-white p-6 rounded-xl shadow-md h-fit"
+            className="bg-white p-6 rounded-xl shadow-md h-72"
             whileHover={{ scale: 1.05 }}
           >
             <Music className="w-9 h-9 text-pink-500 mx-auto mb-2" />
             <h3 className="text-base font-semibold text-pink-600 mb-2">
               Our Love Playlist
             </h3>
-            <ul className="text-left mb-4 hidden">
+            <ul className="text-left mb-4 text-gray-600 text-sm">
               {playlist.map((song, index) => (
-                <li key={index} className="mb-2">
+                <li key={index} className="mb-0">
                   <span className="font-medium">{song.title}</span> -{" "}
                   {song.artist}
                 </li>
               ))}
+              <li className="italic font-light text-pink-500">and others</li>
             </ul>
             <Button className="bg-pink-500 hover:bg-pink-600 text-white">
-              Listen to Playlist
+              <a
+                href="https://open.spotify.com/playlist/0jv9vvu4JCRxWX9I91otKY?si=nRt8q7riQbqJ6gx4mhchLw&pi=rR6SvKmzSGC3W"
+                target="_blank"
+              >
+                Listen to Playlist
+              </a>
             </Button>
           </motion.div>
         </div>

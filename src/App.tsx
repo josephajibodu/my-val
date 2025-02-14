@@ -15,10 +15,15 @@ import confetti from "canvas-confetti";
 function App() {
   const [
     currentStep,
-    { goToNextStep, canGoToPrevStep, goToPrevStep, canGoToNextStep },
+    { goToNextStep, canGoToPrevStep, goToPrevStep, canGoToNextStep, setStep },
   ] = useStep(7);
 
   const [currentStageComplete, setCurrentStageComplete] = useState(false);
+
+  useEffect(() => {
+    // Reset completion state when changing steps
+    setStep(7);
+  }, [currentStep]);
 
   useEffect(() => {
     // Reset completion state when changing steps
