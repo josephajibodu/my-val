@@ -11,8 +11,20 @@ import GrandFinale from "./components/main/grand-finale";
 import LoveFillerSlide from "./components/main/love-filler-slide";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
+import { Typewriter } from "react-simple-typewriter";
 
 function App() {
+  const messages = [
+    "Hiiiiiii 🫶🏼",
+    "Hey love! 💕",
+    "My heart beats for you ❤️",
+    "You're my favorite person 🥰",
+    "You're my safe place 🤗",
+    "You make my world brighter ☀️",
+    "Mi coraźon ✨",
+    "Aríkéè mi 💖",
+  ];
+
   const [
     currentStep,
     { goToNextStep, canGoToPrevStep, goToPrevStep, canGoToNextStep },
@@ -60,9 +72,22 @@ function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-5xl font-bold text-white drop-shadow-lg">
-          Hiiiiiii 🫶🏼
-        </h1>
+        <motion.h1
+          className="text-3xl font-bold text-white drop-shadow-lg"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typewriter
+            words={messages}
+            loop={true}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1500}
+          />
+        </motion.h1>
       </motion.div>
 
       <div className="relative z-10 max-w-lg mx-auto flex-1 h-[80vh]">
