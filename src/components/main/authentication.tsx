@@ -2,7 +2,15 @@ import { useState, useEffect } from "react";
 import { Input } from "../ui/input";
 import { SlideProps } from "@/types";
 
-const codes = ["I love you", "I miss you", "I'm sorry", "I'm here"];
+const codes = [
+  "Wuraola",
+  "Ayoifeoluwasimi",
+  "220896",
+  "1872",
+  "2019",
+  "July",
+  "November",
+];
 
 function Authentication({ onChange }: SlideProps) {
   const [code, setCode] = useState("");
@@ -33,8 +41,8 @@ function Authentication({ onChange }: SlideProps) {
         truly deserve to see the awesomeness hidden within.
       </h2>
       <p className="mt-8">
-        Enter the secret codes—codes only we would know, codes that remind us of
-        our special moments.
+        Enter the secret codes — codes only we would know, codes that remind us
+        of our special moments.
       </p>
 
       <div className="mt-8">
@@ -43,7 +51,10 @@ function Authentication({ onChange }: SlideProps) {
           value={code}
           onChange={(e) => setCode(e.target.value)}
         />
-        <p className="italic text-xs text-center mt-2">Any code at all</p>
+        <p className="italic text-xs text-center mt-2">
+          It could be a word, code, number etc. The 'Continue' button will
+          activate once valid
+        </p>
       </div>
     </div>
   );

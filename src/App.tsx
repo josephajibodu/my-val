@@ -8,6 +8,7 @@ import MomentsThatTouch from "./components/main/moments-that-touch";
 import ShareMoments from "./components/main/share-moments";
 import WillYouBeMyVal from "./components/main/will-you-be-my-val";
 import GrandFinale from "./components/main/grand-finale";
+import LoveFillerSlide from "./components/main/love-filler-slide";
 
 function App() {
   const [currentStep, { goToNextStep, canGoToPrevStep, goToPrevStep }] =
@@ -46,6 +47,7 @@ function App() {
       </div>
 
       <div className="relative z-10 max-w-lg mx-auto flex-1 h-[80vh]">
+        <LoveFillerSlide onChange={setCurrentStageComplete} />
         {/* <GrandFinale onChange={setCurrentStageComplete} /> */}
         {/* <WillYouBeMyVal onChange={setCurrentStageComplete} /> */}
         {/* <ShareMoments onChange={setCurrentStageComplete} /> */}
