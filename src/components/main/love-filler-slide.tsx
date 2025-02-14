@@ -12,6 +12,7 @@ export default function LoveFillerSlide({ onChange }: SlideProps) {
   const [message, setMessage] = useState(
     "Hold the heart to fill it with love!"
   );
+
   const fillAnimation = useAnimation();
   const pulseAnimation = useAnimation();
 
@@ -43,7 +44,7 @@ export default function LoveFillerSlide({ onChange }: SlideProps) {
 
   useEffect(() => {
     fillAnimation.start({
-      height: `${fillPercentage}%`,
+      scale: fillPercentage / 100,
       transition: { duration: 0.1 },
     });
   }, [fillPercentage, fillAnimation]);
@@ -54,9 +55,10 @@ export default function LoveFillerSlide({ onChange }: SlideProps) {
       transition: { duration: 0.5, repeat: Number.POSITIVE_INFINITY },
     });
   }, [pulseAnimation]);
+
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault(); // Prevent selection
-    e.stopPropagation(); // Stop event bubbling
+    e.preventDefault();
+    e.stopPropagation();
     setIsHolding(true);
   };
 
@@ -84,15 +86,21 @@ export default function LoveFillerSlide({ onChange }: SlideProps) {
       <p className="text-lg text-pink-900 mb-8">{message}</p>
 
       <div className="relative w-48 h-48 mx-auto mb-8">
+        {/* Pulsating Background */}
         <motion.div
           className="absolute inset-0 bg-pink-200 rounded-full"
           animate={pulseAnimation}
         />
+
+        {/* Expanding Fill Effect */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 bg-pink-500 rounded-full"
-          initial={{ height: 0 }}
+          className="absolute inset-0 bg-pink-500 rounded-full"
+          initial={{ scale: 0 }}
           animate={fillAnimation}
+          style={{ transformOrigin: "center" }}
         />
+
+        {/* Heart Icon (Top Layer) */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center cursor-pointer"
           whileHover={{ scale: 1.05 }}

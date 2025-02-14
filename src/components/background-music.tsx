@@ -54,7 +54,7 @@ const BackgroundMusic = ({ canPlay = false }: { canPlay?: boolean }) => {
   return (
     <div>
       {/* Hidden Audio Element */}
-      <audio ref={audioRef} preload="auto" src={romanticMusic}></audio>
+      <audio ref={audioRef} preload="auto" loop src={romanticMusic}></audio>
 
       {/* Fixed Play/Pause Button */}
       <Button
